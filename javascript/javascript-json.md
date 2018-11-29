@@ -54,6 +54,6 @@ Swift 타입으로는 `[String: Any]`가 된다.
 ```
 위 json 구조는 `[{}, {}, {}]`형식이다.  
 Swift 타입으로는 `[[String: Any]]`가 된다.
-_ _ _ 
+
 
 

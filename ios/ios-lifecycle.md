@@ -16,7 +16,7 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
   self.view.endEditing(true)
 }
 ```
-* * *
+
 App Life Cycle
 --
 #### xcode documentation 보면서 공부할 2곳
@@ -40,7 +40,7 @@ UIKit designates an object as the first responder to an event based on the type 
 ### 2. Managing Your App's life cycle
 UIKit apps are always in one of five states, which are shown below.  
 ![image](https://user-images.githubusercontent.com/26243835/49029380-c9ca0700-f1e7-11e8-91b8-477d2f3f1d30.png)
-* * *
+
 AppDelegate.swift 
 --
 ##### Methods
@@ -73,7 +73,7 @@ AppDelegate.swift
   - applicationWillResignActive -> applicationDidEnterBackground -> applicationWillTerminate
 **기본적으로 실행되는 앱이 우선이고 리소스를 다 쓰게 되면 백그라운드에 있는 앱 중에 랜덤으로 날라가게 된다.**
 그러므로 잘 만들어진 앱은 background로 넘어갈 때 데이터들을 저장하고 다시 foreground가 될 때 데이터를 땡겨와야(로딩해야)한다.
-* * * 
+
 ViewController.swift
 --
 #### func viewDidLoad()
@@ -93,4 +93,4 @@ ViewController.swift
 
 #### func viewWill/DidAppear()
 - 다른 ViewController로 전환 시 호출됨
-* * * 
+
