@@ -25,6 +25,7 @@
 ### Swift
 
 - [Super Basic](swift/swift-basic.md)
+- [Optional](swift/swift-optional.md)
 
 ### JavaScript
 
