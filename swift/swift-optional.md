@@ -23,7 +23,10 @@ case .none:
 ```
 Optional 쓰는 이유?
 --
+- nil 가능성을 명시적으로 표현
+    - nil 가능성을 문서/주석으로 작성하지 않고 코드로 표현 가능
 - 기존에 nil로 인한 crash 문제를 compile 시점에서 막아주려고 ..
+    - 안전한 코딩 가능
   
 ```Swift
 var number : Int? = 3 
@@ -31,6 +34,7 @@ print(number?.description)  // Optional("3")
 ```
 - 참고) description : Type to `String`
 
+- Optional 변수를 일반 변수처럼 쓰려면 Unwrapping을 해줘야 한다.
 
 Optional Unwrapping 하는 법
 --
