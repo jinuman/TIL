@@ -26,6 +26,7 @@
 
 - [Super Basic](swift/swift-basic.md)
 - [Optional](swift/swift-optional.md)
+- [Merge Sort](swift/swift-mergesort.md)
 
 ### JavaScript
 
