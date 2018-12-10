@@ -1,5 +1,3 @@
-# Super Basic
-
 Swift의 특징
 --
 1. Swift : 정적 타입 언어, Objective-C : 동적 타입 언어
@@ -18,7 +16,21 @@ var variable: String = "차후에 변경이 가능한 변수 var"
 
 Data Type
 --
-- Swift의 대부분의 데이터 타입들은 `struct`로 되어있다. Int, String, Double 등등
+- Swift의 대부분의 데이터 타입들은 `struct`로 되어있다.
+```
+public struct Int
+
+public struct Double
+
+public struct String
+
+public struct Dictionary<Key : Hashable, Value>
+
+public struct Array<Element>
+
+public struct Set<Element : Hashable>
+```
+
 #### String
 
 - Multiline String Literals  
