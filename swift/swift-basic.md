@@ -111,7 +111,54 @@ for tickMark in stride(from: 0, to: minutes, by: minuteInterval){
     print(tickMark)     // 0, 5, 10, ..., 55
 }
 ```
+Function
+--
+```Swift
+func 함수이름(전달인자레이블 이름: 타입, _ 이름: 타입) -> 반환타입 {
+  함수 구현
+  return 반환값
+}
+```
+#### Argument Label ( 전달인자 레이블 )
+- **`함수 내부에선 Parameter name을, 함수를 호출할 때는 Argument Label을 사용한다.`**  
+- 코드의 가독성을 증가시킨다. 
+- If you don't want an argument label for a `parameter`, write an underscore _ instead of an explicit argument label for that parameter.
 
+#### Variadic Parameters ( 가변 매개변수 )
+- A variadic parameter accepts zero or more values of a specified type.
+- **함수당 하나만 가질 수 있다.**
+```Swift
+func arithmeticMean(_ numbers: Double...) -> Double {
+    var total: Double = 0
+    for number in numbers {
+        total += number
+    }
+    if numbers.count == 0 {
+        return total
+    }
+    return total / Double(numbers.count)
+}
+arithmeticMean(1, 2, 3, 4, 5)    // 3.0
+arithmeticMean(3, 8.25, 18.75)   // 10.0
+arithmeticMean()    // 0
+```
+#### 데이터 타입으로서의 함수
+- Swift는 함수형 프로그래밍 패러다임을 포함하는 다중 패러다임 언어이다.
+- Swift의 함수는 `일급객체`이므로 변수, 상수 등에 저장, 매개변수 전달이 가능하다.
+- **반환 타입을 생략할 수 없다.**
+```Swift
+func greeting(to friend: String, from me: String) {
+    print("Hello \(friend)! I'm \(me)")
+}
+
+var someFunction: (String, String) -> Void = greeting(to: from:)
+someFunction("pogba", "jinu")   // "Hello pogba! I'm jinu"
+
+func runAnother(function: (String, String) -> Void) {
+    function("robert", "jinu")
+}
+runAnother(function: someFunction)  // "Hello robert! I'm jinu"
+```
 * * * 
 
 ##### State ( 상태 ) : 프로그램 안에서 변할 수 있는 요소
