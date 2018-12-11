@@ -49,7 +49,7 @@ AppDelegate.swift
   - 그러므로 최초 초기화 코드에 사용됨
 - applicationDidBecomeActive
   - inactive -> active 
-  - 게임 앱에서 "다시 할래요?" 같은 것들을 넣어 주는 곳
+  - ex) 게임 앱에서 "다시 할래요?" 같은 것들을 넣어 주는 곳
 - applicationWillResignActive 
   - active -> inactive
   - ex) 홈버튼 두번 눌러서 전환창
@@ -77,7 +77,7 @@ AppDelegate.swift
 ViewController.swift
 --
 #### func viewDidLoad()
-- **해당 ViewController 클래스가 생성될 때**
+- <u>**해당 ViewController 클래스가 생성될 때**</u>
 - 일반적으로 리소스 초기화, 초기화면 구성에 쓰임
 - 클래스 생성 시 딱 1번만 호출됨
 
@@ -91,6 +91,6 @@ ViewController.swift
 - ex) 키보드 띄우기
   - 화면을 다 보여준 후 키보드를 띄워주는 UX를 구현하고 싶을 경우
 
-#### func viewWill/DidAppear()
+#### func viewWill/DidDisppear()
 - 다른 ViewController로 전환 시 호출됨
 
