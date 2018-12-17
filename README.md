@@ -28,6 +28,7 @@
 - [Optional](swift/swift-optional.md)
 - [Struct](swift/swift-struct.md)
 - [Class](swift/swift-class.md)
+- [Enum](swift/swift-enum.md)
 - [Merge Sort](swift/swift-mergesort.md)
 
 ### JavaScript
