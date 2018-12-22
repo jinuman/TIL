@@ -15,6 +15,7 @@
 * [iOS](#ios)
 * [Swift](#swift)
 * [JavaScript](#javascript)
+* [Python](#python)
 
 * * * 
 
@@ -34,6 +35,10 @@
 ### JavaScript
 
 - [JSON 초간단 정리](javascript/javascript-json.md)
+
+### Python
+
+- [Super Basic](python/python-basic.md)
 
 ## License
 
