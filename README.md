@@ -30,6 +30,7 @@
 - [Struct](swift/swift-struct.md)
 - [Class](swift/swift-class.md)
 - [Enum](swift/swift-enum.md)
+- [Closure](swift/swift-closure.md)
 - [Merge Sort](swift/swift-mergesort.md)
 
 ### JavaScript
