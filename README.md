@@ -32,6 +32,7 @@
 - [Enum](swift/swift-enum.md)
 - [Closure](swift/swift-closure.md)
 - [Merge Sort](swift/swift-mergesort.md)
+- [Auto-Layout](swift/swift-autolayout.md)
 
 ### JavaScript
 
