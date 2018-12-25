@@ -1,4 +1,7 @@
-# Auto-Layout
+# Auto-Layout Basic
+Auto-Layout
+--
+
 > View들 간의 관계를 이용하여 View의 위치와 크기를 자동으로 결정하는 Layout System
 
 - view1.attr1 = view2.attr2 * multiplier + constant
@@ -51,7 +54,6 @@ Equal Width 기준
 
 Alignment
 --
-
 _쉽게 설명_
 - Horizontally in Container : Object의 너비를 중앙에
 - Vertically in Container : Object의 높이를 중앙에
@@ -97,23 +99,4 @@ label 2개가 수평으로 놓여져 있고 둘 사이 가운데 space constant�
 
 - `줄어드는 경우`에 이 옵션을 쓴다. _"누가 줄어들래?"_  
 - 그 외에는 Hugging Priority랑 개념이 똑같다. 
-
-Rotate
---
-
-- Portrait(세로모드), Landscape(가로모드)에 따라 다르게 보여줄 수 있다.
-
-1. Interface Builder에서 모드를 선택하고 `Vary for traits` 버튼을 누른다.
-2. `height`, `width`에 따라 적용되는 모델들을 확인하고 변경될 Auto-layout 지정
-3. `Done Varying`을 누르면 해당 모드에서 적용된다.
-
-ScrollView
---
-
-- UIScrollView의 하위 뷰로 UIView 추가하고 안에 Contents들을 집어 넣는다.
-- 아래로 스크롤되면서 보여주게 하고 싶다면 UIView의 Constraints를 ScrollView에 맞추고,
-- Bottom Constraint의 priority 값을 다른 Priority 값보다 낮추면 Contents의 사이즈에 따라 아래로 유동적으로 변한다.
-
-
-
 
