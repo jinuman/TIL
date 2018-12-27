@@ -33,6 +33,7 @@
 - [Closure](swift/swift-closure.md)
 - [Merge Sort](swift/swift-mergesort.md)
 - [Auto-Layout Basic](swift/swift-autolayout-basic.md)
+- [Auto-Layout Advanced](swift/swift-autolayout-advanced.md)
 
 ### JavaScript
 
@@ -44,7 +45,7 @@
 
 ## License
 
-&copy; 2015-2018 Jinwoo, Kim  
+&copy; 2018 Jinwoo, Kim  
 
 This repository is available under the MIT license.  
 See the `LICENSE` file for details.
