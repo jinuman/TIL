@@ -22,6 +22,7 @@
 ### iOS
 
 - [iOS Life Cycle](ios/ios-lifecycle.md)
+- [UserDefaults](ios/ios-userdefaults.md)
 
 ### Swift
 
@@ -31,6 +32,7 @@
 - [Class](swift/swift-class.md)
 - [Enum](swift/swift-enum.md)
 - [Closure](swift/swift-closure.md)
+- [Quick Sort](swift/swift-quicksort.md)
 - [Merge Sort](swift/swift-mergesort.md)
 - [Auto-Layout Basic](swift/swift-autolayout-basic.md)
 - [Auto-Layout Advanced](swift/swift-autolayout-advanced.md)
