@@ -1,5 +1,5 @@
-Merge Sort
---
+# Merge Sort
+> 분할 정복 방법을 통해 리스트를 정렬
 
 - 시간 복잡도 : O(NlgN)
 - 공간 복잡도 : O(N)
@@ -8,25 +8,27 @@ Merge Sort
 import Foundation
 
 func mergeSort(_ arr: inout [Int]) -> [Int] {
-    mergeSort(arr: &arr, front: 0, rear: arr.count - 1)
+    mergeSort(arr: &arr, start: 0, end: arr.count - 1)
     return arr
 }
-func mergeSort(arr: inout [Int], front: Int, rear: Int) {
-    if front == rear {
+
+func mergeSort(arr: inout [Int], start: Int, end: Int) {
+    if start == end {
         return
     }
-    let mid: Int = (front + rear) / 2
-    mergeSort(arr: &arr, front: front, rear: mid)
-    mergeSort(arr: &arr, front: mid + 1, rear: rear)
-    merge(arr: &arr, front: front, mid: mid, rear: rear)
+    let mid: Int = (start + end) / 2
+    mergeSort(arr: &arr, start: start, end: mid)
+    mergeSort(arr: &arr, start: mid + 1, end: end)
+    merge(arr: &arr, start: start, mid: mid, end: end)
 }
-func merge(arr: inout [Int], front: Int, mid: Int, rear: Int) {
-    var tempArr: [Int] = arr
 
-    var i: Int = front
+func merge(arr: inout [Int], start: Int, mid: Int, end: Int) {
+    var tempArr: [Int] = arr
+    
+    var i: Int = start
     var j: Int = mid + 1
-    var k: Int = front
-    while i <= mid && j <= rear {
+    var k: Int = start
+    while i <= mid && j <= end {
         if tempArr[i] <= tempArr[j] {
             arr[k] = tempArr[i]
             i += 1
@@ -36,14 +38,14 @@ func merge(arr: inout [Int], front: Int, mid: Int, rear: Int) {
         }
         k += 1
     }
-    // 위에서 j > rear 이면 남은 것 저장
+    // 위에서 j > end 이면 남은 것 저장
     while i <= mid {
         arr[k] = tempArr[i]
         i += 1
         k += 1
     }
     // 위에서 i > mid 이면 남은 것 저장
-    while j <= rear {
+    while j <= end {
         arr[k] = tempArr[j]
         j += 1
         k += 1
@@ -51,6 +53,6 @@ func merge(arr: inout [Int], front: Int, mid: Int, rear: Int) {
 }
 
 var array: [Int] = [3, 5, 2, 9, 10, 14, 4, 8, 1, 15]
-print(array)
-print(mergeSort(&array))
+print(mergeSort(&array))    // [1, 2, 3, 4, 5, 8, 9, 10, 14, 15]
+
 ```
