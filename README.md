@@ -32,6 +32,7 @@
 - [Class](swift/swift-class.md)
 - [Enum](swift/swift-enum.md)
 - [Closure](swift/swift-closure.md)
+- [Extension](swift/swift-extension.md)
 - [Quick Sort](swift/swift-quicksort.md)
 - [Merge Sort](swift/swift-mergesort.md)
 - [Auto-Layout Basic](swift/swift-autolayout-basic.md)
