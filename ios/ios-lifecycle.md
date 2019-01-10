@@ -1,14 +1,17 @@
 # Life Cycle
 
-### NSObject : 최상위 클래스
+## iOS class Hierarchy
+![ios-hierarchy](https://user-images.githubusercontent.com/26243835/50977994-c7710180-1536-11e9-8970-aaa9ccb333d0.jpg)
 
-### UIResponder
+#### NSObject ( iOS root class)
+> The root class of most Objective-C class hierarchies, from which subclasses inherit a basic interface to the runtime system and the ability to behave as Objective-C objects.  
+
+#### UIResponder
 > An abstract interface for responding to and handling events.
 
 - UI의 모든 이벤트에 관여되어 있다. 
-- ex) touchesBegan, touchesMoved, touchesEnded, ...
-- UIView는 얘를 상속받는다.
-#### 
+  - ex) touchesBegan, touchesMoved, touchesEnded, ...
+- UIView는 UIResponder를 상속받는다.
 
 #### View 부분을 Tab 하면 키보드 내리는 코드
 ```Swift
@@ -16,40 +19,21 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
   self.view.endEditing(true)
 }
 ```
+* * *
+## App Life Cycle
 
-App Life Cycle
---
-#### xcode documentation 보면서 공부할 2곳
-1. Using Responders and the Responder Chain to Handle Events
-2. Managing Your App's life cycle
-
-#### 최상위 객체 중 알아야 할 것 4가지 ( 정독 해볼 것 )
-1. UIResponder
-2. UIView
-3. UIViewController
-4. UIApplication
-
-### 1. Using Responders and the Responder Chain to Handle Events
-When your app receives an event, UIKit automatically directs that event to the most appropriate responder object, known as the `first responder`
-#### Responder Chains in an app  
-![image](https://user-images.githubusercontent.com/26243835/49028904-ceda8680-f1e6-11e8-97ce-10f89009dae2.png)
-#### Determining an Event's First Responder
-UIKit designates an object as the first responder to an event based on the type of that event. 
-문서 참고할 것..
-
-### 2. Managing Your App's life cycle
-UIKit apps are always in one of five states, which are shown below.  
+- UIKit apps are always in one of five states, which are shown below.  
 ![image](https://user-images.githubusercontent.com/26243835/49029380-c9ca0700-f1e7-11e8-91b8-477d2f3f1d30.png)
 
-AppDelegate.swift 
---
-##### Methods
-- application
+- Inactive와 Active 상태를 **Foreground** 라고 말한다.
+
+### AppDelegate methods
+- application(didFinishLaunchingWithOptions)
   - **처음에 한번만 호출됨**
   - 그러므로 최초 초기화 코드에 사용됨
 - applicationDidBecomeActive
   - inactive -> active 
-  - ex) 게임 앱에서 "다시 할래요?" 같은 것들을 넣어 주는 곳
+  - 게임 앱에서 "다시 할래요?" 같은 것들을 넣어 주는 곳
 - applicationWillResignActive 
   - active -> inactive
   - ex) 홈버튼 두번 눌러서 전환창
@@ -61,8 +45,10 @@ AppDelegate.swift
   - background -> active
 - applicationWillTerminate
   - 앱이 종료되기 직전에 호출됨
-##### UIApplicationDelegate Flow! 
-**개발 시 영어 주석 꼭 읽어볼 것!**
+
+
+#### UIApplicationDelegate Flow! 
+
 - 처음 시작시!
   - didFinishLaunchingWithOptions -> applicationDidBecomeActive
 - 홈 버튼을 한번 누르면!
@@ -71,26 +57,66 @@ AppDelegate.swift
   - applicationWillEnterForeground -> applicationDidBecomeActive
 - 홈 버튼 두번 누르고 앱 종료!
   - applicationWillResignActive -> applicationDidEnterBackground -> applicationWillTerminate
-**기본적으로 실행되는 앱이 우선이고 리소스를 다 쓰게 되면 백그라운드에 있는 앱 중에 랜덤으로 날라가게 된다.**
-그러므로 잘 만들어진 앱은 background로 넘어갈 때 데이터들을 저장하고 다시 foreground가 될 때 데이터를 땡겨와야(로딩해야)한다.
 
-ViewController.swift
---
-#### func viewDidLoad()
-- <u>**해당 ViewController 클래스가 생성될 때**</u>
+**기본적으로 실행되는 앱이 우선이고 리소스를 다 쓰게 되면 백그라운드에 있는 앱 중에 랜덤으로 날라가게 된다.**   
+필요에 따라 background로 넘어갈 때 데이터들을 저장하고 다시 foreground가 될 때 데이터를 로딩 해야한다.
+
+* * *
+
+## ViewController Life Cycle
+- viewDidLoad는 클래스 생성 시 1회 호출 된다.
+- appear, disappear 관련된 메소드들은 여러번 호출될 수 있다.
+- UIKit 프레임워크가 호출하는 함수이므로 직접 호출할 수 없다.
+- 오버라이드 할 경우 반드시 super 구현을 호출해야 한다.
+
+![image](https://user-images.githubusercontent.com/26243835/50978068-f1c2bf00-1536-11e9-8efb-6479c0c9bab8.png)
+### View 상태 변화 Methods
+> 뷰가 나타나거나 사라지는 등, 뷰가 화면에 보이는 상태가 변화할 때 호출되는 methods
+
+##### func viewDidLoad()
+- **해당 ViewController 클래스가 메모리에 처음 로딩될 때 1회 호출됨**
+- 메모리 경고로 뷰가 사라지지 않는 이상 다시 호출되지 않음
 - 일반적으로 리소스 초기화, 초기화면 구성에 쓰임
-- 클래스 생성 시 딱 1번만 호출됨
 
-#### func viewWillAppear()
+##### func viewWillAppear()
+
 - 해당 ViewController가 나타나기 직전에 일어나야 할 일을 여기에 배치
-- ex) 내부 설정으로 뷰를 변경하고 변경된 뷰를 reload할 경우
+- 뷰의 추가적인 초기화 작업을 하기 좋은 시점
+  - ex) 내부 설정으로 뷰를 변경하고 변경된 뷰를 reload할 경우
+- 다른 뷰로 이동했다가 되돌아오면 재호출됨
 
-#### func viewDidAppear()
-- ex) 화면이 적용될 애니메이션을 그릴 때
-- ex) API로부터 정보를 받아와 업데이트 할 때?
-- ex) 키보드 띄우기
-  - 화면을 다 보여준 후 키보드를 띄워주는 UX를 구현하고 싶을 경우
+##### func viewDidAppear()
 
-#### func viewWill/DidDisppear()
-- 다른 ViewController로 전환 시 호출됨
+- 화면이 표시되면 호출되는 메소드
+- 화면을 다 보여준 후 뷰에 추가적인 작업을 하기 좋은 시점
+  - ex) 화면이 적용될 애니메이션을 그릴 때
+  - ex) 화면을 다 보여준 후 키보드 띄우기
 
+##### func viewWillDisappear()
+
+- 뷰가 뷰 계층에서 사라지기 직전에 호출됨
+- 뷰가 생성된 뒤 발생한 변화를 이전상태로 되돌리기 좋은 시점
+
+##### func viewDidDisappear
+
+- 뷰가 뷰 계층에서 사라진 후 호출되는 메소드
+- 뷰를 숨기는 것과 관련된 추가적인 작업을 하기 좋은 시점
+- 시간이 오래 걸리는 작업은 하지 않는 것이 좋다. 
+
+### View Layout 변화 Methods
+> 뷰가 생성된 후 바운드 및 위치 등의 레이아웃에 변화가 생겼을 때 호출되는 methods
+
+##### func viewWillLayoutSubviews()
+
+- 뷰가 서브뷰의 레이아웃을 변경하기 직전에 호출되는 메소드
+- 서브뷰의 레이아웃을 변경하기 전에 수행할 작업을 하기 좋은 시점
+
+##### func viewDidLayoutSubviews()
+
+- 서브뷰의 레이아웃이 변경된 후 호출되는 메소드
+- 서브뷰의 레이아웃을 변경 한 후 추가적인 작업을 수행하기 좋은 시점
+
+✻ 그 외에도 다양한 메소드들이 있다.
+#### ✻ 중요! <u>View Controller에서 위 메소드들을 사용하기 위해선 override 키워드를 명시하고 super를 호출해야 한다!</u>
+
+* * * 
