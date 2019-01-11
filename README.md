@@ -28,6 +28,7 @@
 
 - [Super Basic](swift/swift-basic.md)
 - [Optional](swift/swift-optional.md)
+- [Tuple](swift/swift-tuple.md)
 - [Struct](swift/swift-struct.md)
 - [Class](swift/swift-class.md)
 - [Enum](swift/swift-enum.md)
