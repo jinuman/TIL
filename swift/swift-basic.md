@@ -1,10 +1,30 @@
+# Swift
+> safe, fast, expressive
+
 Swift의 특징
 --
-1. Swift : 정적 타입 언어, Objective-C : 동적 타입 언어
-> 정적 타입 언어란 : 타입을 컴파일시 결정하는 언어
+- 안정성 (safe)  
 
-2. ARC( Automatic Reference Counting ) 이용한 메모리 관리
-3. 멀티 패러다임 지원 - OOP, FP( 함수형 프로그래밍 )
+> - 프로그래밍을 하는 중에 실수를 엄격한 문법으로 미연에 방지
+> - optional, guard 구문, 오류처리, 강력한 타입통제 등을 통해 안전한 프로그래밍을 구현
+
+- 신속성 (fast)
+
+> - C언어를 기반으로한 C++, Objective-C를 대체하려는 목적으로 만들어짐
+> - 실행속도의 최적화 뿐만 아니라 컴파일러의 지속된 개량을 통해 더 빠른 컴파일 성능을 구현
+
+- 표현성 (expressive)
+
+> - 보기 좋은 문법을 구사
+> - 현대적이고 세련된 문법을 구사
+> - 계속된 업데이트를 통해 계속 발전중
+
+- Swift : 정적 타입 언어, Objective-C : 동적 타입 언어
+
+> - 정적 타입 언어란 : 타입을 컴파일시 결정하는 언어
+
+- ARC( Automatic Reference Counting ) 이용한 메모리 관리
+- 멀티 패러다임 지원 - OOP, FP( 함수형 프로그래밍 )
 
 Constants and Variables
 --
@@ -17,7 +37,7 @@ var variable: String = "차후에 변경이 가능한 변수 var"
 Data Type
 --
 - Swift의 대부분의 데이터 타입들은 `struct`로 되어있다.
-```
+```Swift 
 public struct Int
 
 public struct Double
