@@ -1,7 +1,4 @@
-# Auto-Layout Basic
-Auto-Layout
---
-
+# Auto-Layout
 > View들 간의 관계를 이용하여 View의 위치와 크기를 자동으로 결정하는 Layout System
 
 - view1.attr1 = view2.attr2 * multiplier + constant
@@ -14,8 +11,8 @@ Auto-Layout
 - Menu -> Editor -> Size to fit Content
 - Shortcut : `cmd + =`
 
-Constraint
---
+## Constraint
+
 - Menu -> Editor -> Update Frames
   - Constraints 값에 맞게 Frame 재조정
   - 실수로 조정했을 때 다시 되돌아가는 기능
@@ -36,8 +33,8 @@ Constraint
 2. 다른 Object로 드래그한 후 Equal Widths, Equal Heights 선택
 
 
-Multiplier
---
+## Multiplier
+
 - 보통은 처음 선택한 것이 FirstItem, 드래그 후 선택한 것이 SecondItem이 된다.
 - 주의) 하지만 constant 값을 양수로 해주기 위해 xcode가 임의로 변경할 때도 있다.
 - **Multiplier에선 1이 중앙이다.** 
@@ -52,8 +49,8 @@ Equal Width 기준
 2. First Item : 첫 번째 View, Second Item : 세 번째 View, Multiplier = 1:3 설정
 
 
-Alignment
---
+## Alignment
+
 _쉽게 설명_
 - Horizontally in Container : Object의 너비를 중앙에
 - Vertically in Container : Object의 높이를 중앙에
@@ -78,8 +75,7 @@ _쉽게 설명_
 - Button -> Size inspector -> Content insets 에서 이미지의 너비 + Constraints 만큼 Setting..
 
 
-Priority
---
+## Priority
 
 - 상황에 따라 Content의 크기가 변해야 할 경우 적용한다.
 - Calculator처럼 딱딱 크기가 일정하게 정해져 있는 경우엔 사용하지 않아도 된다.
@@ -91,7 +87,7 @@ Priority
 - `같거나 늘어나는 경우`에 이 옵션을 쓴다. _"누가 늘어날래?"_  
 - cf ) **Constraint에도 Priority가 있는데 낮은 것이 변한다는 개념은 똑같다.**
 
-##### example)
+##### priority example
 label 2개가 수평으로 놓여져 있고 둘 사이 가운데 space constant를 좁게 설정한 상황일 때..
 - 어느 label의 크기를 유지시키고, 어느 label의 크기를 변화시킬 지 결정할 때, 유지시키고 싶은 것의 priority 값을 높여주면 된다.
 

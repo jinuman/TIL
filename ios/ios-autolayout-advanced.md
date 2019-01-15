@@ -1,7 +1,6 @@
 # Auto-Layout Advanced
 
-Rotate
---
+## Rotate
 
 - Portrait(세로모드), Landscape(가로모드)에 따라 다르게 보여줄 수 있다.
 
@@ -14,15 +13,13 @@ Rotate
    2. Attributes inspector -> Add customization -> Add Variation 
    3. Installed 클릭 된 부분을 해제하면 된다.
 
-ScrollView
---
+## ScrollView
 
 - UIScrollView의 하위 뷰로 UIView 추가하고 안에 Contents들을 집어 넣는다.
 - 아래로 스크롤되면서 보여주게 하고 싶다면 UIView의 Constraints를 ScrollView에 맞추고,
 - Bottom Constraint의 priority 값을 다른 Priority 값보다 낮추면 Contents의 사이즈에 따라 아래로 유동적으로 변한다.
 
-Dynamic Text
---
+## Dynamic Text
 
 ### Label을 Image에 배치할 때
 
