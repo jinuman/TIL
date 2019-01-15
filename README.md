@@ -22,6 +22,8 @@
 ### iOS
 
 - [iOS Life Cycle](ios/ios-lifecycle.md)
+- [Auto-Layout Basic](ios/ios-autolayout-basic.md)
+- [Auto-Layout Advanced](ios/ios-autolayout-advanced.md)
 - [UserDefaults](ios/ios-userdefaults.md)
 
 ### Swift
@@ -36,8 +38,6 @@
 - [Extension](swift/swift-extension.md)
 - [Quick Sort](swift/swift-quicksort.md)
 - [Merge Sort](swift/swift-mergesort.md)
-- [Auto-Layout Basic](swift/swift-autolayout-basic.md)
-- [Auto-Layout Advanced](swift/swift-autolayout-advanced.md)
 
 ### JavaScript
 
