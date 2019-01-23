@@ -39,8 +39,8 @@ immutable.mutableProperty = 200
 print(immutable.mutableProperty)    // 200
 ```
 
-Initializer
---
+## Initializer
+
 - 설계 시 프로퍼티의 초기값이 꼭 필요하지 않을 때 옵셔널 사용
 ```Swift
 class Person {
@@ -119,13 +119,14 @@ var person: Person? = Person()
 person = nil    // "jinu님이 죽었습니다."
 ```
 
-Inheritance
---
+## Inheritance
+
 - Swift에서는 단일 상속만 가능하다.
 - 기존의 클래스에서 기능을 추가하거나 재정의해서 새로운 클래스를 정의하는 것이다.
 - 기존의 클래스를 재활용할 수 있다는 장점이 있다.
 - **설계 시 중복되는 것들을 부모클래스에 정의해놓으면, 자식 클래스에서는 다시 작성하는 일을 피할 수 있다.**
 - 앱이 커지면 커질수록 유지보수가 어렵다는 단점이 있다.
+- _클래스 상속과 프로토콜 채택을 동시에 한다면, 상속 받는 부모 클래스를 먼저 써준 다음 프로토콜을 쓰는걸로 구분한다._
 
 ##### Example
 ```Swift
