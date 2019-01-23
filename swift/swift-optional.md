@@ -1,28 +1,36 @@
 # Optional
 
-Optional이란?
---
+## What is optional?
+
 - 값이 있을 수도 없을 수도 있는 (nil일 수도 아닐 수도 있는) 타입
 - Optional 타입은 열거형
-- Optional 타입은 따로 초기화를 하지 않으면 nil로 초기화 된다.
 ```Swift
 enum Optional<T> {
     case some(T)
     case none
 }
 ```
+- Optional 타입은 따로 초기화를 하지 않으면 nil로 초기화 된다.
+- **초기화 없이 옵셔널 타입 선언은 var만 가능하다!** let은 불가능
+```Swift
+var text1: String?
+let text2: String? // error: must have an initial value
+print(text1) // nil
+```
+
 - 옵셔널을 switch문으로 받아보기
 ```Swift
 var maybeNumber: Int? = 0
 switch maybeNumber {
 case let .some(number):
-    print(number)
+    print(number)  // 0
 case .none:
     print("nil")
 }
 ```
-Optional 쓰는 이유?
---
+
+## Why we use optional type?
+
 - nil 가능성을 명시적으로 표현
     - nil 가능성을 문서/주석으로 작성하지 않고 코드로 표현 가능
 - 기존에 nil로 인한 crash 문제를 compile 시점에서 막아주려고 ..
@@ -36,8 +44,8 @@ print(number?.description)  // Optional("3")
 
 - Optional 변수를 일반 변수처럼 쓰려면 Unwrapping을 해줘야 한다.
 
-Optional Unwrapping 하는 법
---
+## Unwrapping optional
+
 - 강제 Unwrapping
 - 옵셔널 바인딩
 - 옵셔널 체이닝  
@@ -94,8 +102,6 @@ func numberOfCharacters3(of maybeString: String?) -> Int? {
 }
 
 ```
-
-
 
 #### ✻ nil 병합 연산자
 - Optional ?? value
