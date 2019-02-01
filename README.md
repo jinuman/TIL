@@ -25,6 +25,7 @@
 - [Auto-Layout Basic](ios/ios-autolayout-basic.md)
 - [Auto-Layout Advanced](ios/ios-autolayout-advanced.md)
 - [UserDefaults](ios/ios-userdefaults.md)
+- [Design Pattern](ios/ios-design-pattern.md)
 
 ### Swift
 
