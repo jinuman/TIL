@@ -1,8 +1,9 @@
 # Closure
+> 익명함수, 즉 이름이 없는 함수 in Swift
 
-- Swift의 closure = 익명함수
-- 변수, 상수 등으로 저장이 가능
-- 전달인자로 전달이 가능
+- "FRP"에서 task(작업)의 단위로 주로 쓰인다. 
+- 변수, 상수 등으로 저장 가능
+- 전달인자로 전달 가능
 - return 키워드 생략 가능 
   - **마지막에 있는 값을 반환 값으로 인식한다.**
 ```Swift
@@ -10,8 +11,8 @@
     codes..
 }
 ```
-함수 vs 클로저
---
+## Function vs Closure
+
 | 비교 | Function | Closure |
 | ---- | ---- | ---- |
 | name | O | X |  
@@ -24,8 +25,8 @@ var giveNoFunc = { () -> in ... } // closure
 giveFunc()   // call function
 giveNoFunc() // call closure
 ```
-Function to Closure
---
+
+## Function to Closure
 
 ```Swift
 func sayHello(name: String) -> String {
@@ -78,9 +79,38 @@ var sayHelloClosure: (String) -> String = {
     "Hello \($0)!"
 }
 ```
+
+## Closure로 프로퍼티 할당 
+- **실행한 클로저의 타입은 그 클로저의 리턴 타입이다!**
+- 함수형 프로그래밍에서 자주 사용되는 개념이다.
+
+```Swift
+var closure = { () -> String in
+    var str = ""
+    for i in 1...3 {
+        str += "\(i), "
+    }
+    return str
+}
+
+var str = closure()
+print(str)  // "1, 2, 3,"
+```
+위 코드와 완벽하게 같은 코드로
+```Swift
+var str: String = { () -> String in
+    var str = ""
+    for i in 1...3 {
+        str += "\(i), "
+    }
+    return str
+}()
+print(str) // "1, 2, 3,"
+```
+
 * * * 
-Closure as a parameter
---
+## Closure as a parameter
+
 - 클로저는 함수의 전달인자로 자주 사용된다. - 일급 객체의 특징
 - 한번 정의한 함수와 타입이 같으면 재사용할 수 있다.
 ```Swift
@@ -118,8 +148,8 @@ print(result)       // 13
 print(sameAsAbove)  // 13
 ```
 
-단축 인자 이름 $0, $1, ...
---
+## 단축 인자 이름 $0, $1, ...
+
 - 클로저의 매개변수 이름이 굳이 필요하지 않을 때 사용할 수 있다.
 - 클로저의 매개변수 순서대로 `$0, $1, ...` 처럼 표현
 - in 키워드를 생략할 수 있다.
@@ -137,8 +167,8 @@ let result = calculate(a: 3, b: 2, method: {
 print(result)       // 13
 ```
 
-후행 클로저
---
+## 후행 클로저
+
 - 클로저가 함수의 마지막 parameter라면, 이름을 생략하고 함수 소괄호 외부에 구현 가능하다. 
 
 ```Swift
