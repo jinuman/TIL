@@ -14,6 +14,7 @@
 
 * [iOS](#ios)
 * [Swift](#swift)
+* [Java](#java)
 * [JavaScript](#javascript)
 * [Python](#python)
 
@@ -39,6 +40,10 @@
 - [Extension](swift/swift-extension.md)
 - [Quick Sort](swift/swift-quicksort.md)
 - [Merge Sort](swift/swift-mergesort.md)
+
+### Java
+
+- [Data-type](java/java-type.md)
 
 ### JavaScript
 
