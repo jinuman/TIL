@@ -80,3 +80,29 @@ Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {
     cnt += 1
 }
 ```
+
+### 참고
+
+## TimeInterval
+
+#### TimeInterval이란? Double형의 초단위  
+
+예를 들어 time: 1.59609977324263 와 같은 형태      
+여기에서 millisecond는 59
+```Swift
+typealias TimeInterval = Double
+```
+
+- 초 단위 시간을 minute : second : millisecond 형태로 변환하는 코드
+```Swift
+func updateTimeLabelText(time: TimeInterval) {
+    let minute: Int = Int(time / 60)
+    let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
+    let milisecond: Int = Int(time.truncatingRemainder(dividingBy: 1) * 100)
+
+    let timeText: String = String(format: "%02ld:%02ld:%02ld", minute, second, milisecond)
+    self.timeLabel.text = timeText
+}
+```
+
+
