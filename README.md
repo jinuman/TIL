@@ -40,6 +40,7 @@
 - [Extension](swift/swift-extension.md)
 - [Quick Sort](swift/swift-quicksort.md)
 - [Merge Sort](swift/swift-mergesort.md)
+- [Timer](swift/swift-timer.md)
 
 ### Java
 
