@@ -1,8 +1,9 @@
 # Class
 
 - **Class는 참조 타입, Struct, enum은 값 타입이다.**
-- Apple 프레임워크의 대부분의 뼈대는 모두 클래스로 구성
-- 따라서 class는 let으로 인스턴스를 선언해도 가변 프로퍼티의 값을 변경할 수 있다.
+- `Apple 프레임워크의 뼈대`는 대부분 클래스로 구성되어 있다.
+- **class는 let으로 인스턴스를 선언해도 가변 프로퍼티의 값을 변경할 수 있다.**
+  - class는 참조타입이기 때문이다. 
 - class 안에서는 프로퍼티들을 초기화 해주어야 한다. struct는 안해줘도 된다.
   - 만약 Codable을 준수한다면 프로퍼티들을 초기화 안해줘도 된다.
 
@@ -41,14 +42,14 @@ print(immutable.mutableProperty)    // 200
 
 ## Initializer
 
-- 설계 시 프로퍼티의 초기값이 꼭 필요하지 않을 때 옵셔널 사용
+- 설계 시 프로퍼티의 초기값이 꼭 필요하지 않을 때 옵셔널 변수를 사용한다.
 ```Swift
 class Person {
     let name: String
     let age: Int
     var nickname: String?
-    // var - init 필요 없음
-    // let - init 필요
+    // var 선언 - init 필요 없음
+    // let 선언 - init 필요
     
     init(name: String, age: Int) {
         self.name = name
@@ -57,9 +58,9 @@ class Person {
 }
 ```
 
-#### 실패 가능한 Initializer
-- **인스턴스 생성 시 매개변수 초기값에 조건을 줄 경우 많이 사용**
-- 이 경우 인스턴스의 클래스 타입은 옵셔널이 된다.
+### 실패 가능한 Initializer
+- **인스턴스 생성 시 매개변수 초기값에 조건을 줄 경우 많이 사용한다. **  
+- 이 경우 인스턴스의 클래스 타입은 옵셔널이 된다.  
 ```Swift
 class Person {
     let name: String
@@ -81,9 +82,9 @@ class Person {
 let person: Person? = Person(name: "jinu", age: 290) // nil
 ```
 
-#### convenience init
-- 클래스 안에서 Designated init이 먼저 생성된 경우 사용 가능
-- 같은 클래스에서 매개변수가 다른 init을 호출할 때 붙이는 키워드
+### convenience init
+- 클래스 안에서 Designated init이 먼저 생성된 경우에 사용 가능하다.
+- 생성자를 오버라이딩하는 개념이다. 즉, 같은 클래스에서 매개변수가 다른 init을 호출할 때 붙이는 키워드이다.
 
 ```Swift
 class Person {
@@ -102,8 +103,9 @@ class Person {
     }
 }
 ```
-#### deinit
+### deinit
 - 클래스의 인스턴스가 메모리에서 해제되는 시점에 호출된다. 
+- Retain Cycle을 확인할 때 사용하면 좋다.
 - 해제되는 시점에 해야할 일을 구현할 수 있다.
 ```Swift
 class Person {
@@ -126,7 +128,7 @@ person = nil    // "jinu님이 죽었습니다."
 - 기존의 클래스를 재활용할 수 있다는 장점이 있다.
 - **설계 시 중복되는 것들을 부모클래스에 정의해놓으면, 자식 클래스에서는 다시 작성하는 일을 피할 수 있다.**
 - 앱이 커지면 커질수록 유지보수가 어렵다는 단점이 있다.
-- _클래스 상속과 프로토콜 채택을 동시에 한다면, 상속 받는 부모 클래스를 먼저 써준 다음 프로토콜을 쓰는걸로 구분한다._
+- 클래스 상속과 프로토콜 채택을 동시에 한다면, _상속 받는 부모 클래스를 먼저 써준 다음 프로토콜을 쓰는 것으로 구분한다._
 
 ##### Example
 ```Swift

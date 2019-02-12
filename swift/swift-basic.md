@@ -1,41 +1,42 @@
 # Swift
 > safe, fast, expressive
 
-Swift의 특징
---
+## Swift의 특징
+
 - 안정성 (safe)  
 
-> - 프로그래밍을 하는 중에 실수를 엄격한 문법으로 미연에 방지
-> - optional, guard 구문, 오류처리, 강력한 타입통제 등을 통해 안전한 프로그래밍을 구현
+> - 프로그래밍을 하는 중에 실수를 엄격한 문법으로 미연에 방지한다. 
+> - optional, guard 구문, 오류처리, 강력한 타입통제 등을 통해 안전한 프로그래밍을 구현한다.
 
 - 신속성 (fast)
 
-> - C언어를 기반으로한 C++, Objective-C를 대체하려는 목적으로 만들어짐
-> - 실행속도의 최적화 뿐만 아니라 컴파일러의 지속된 개량을 통해 더 빠른 컴파일 성능을 구현
+> - C언어를 기반으로한 C++, Objective-C를 대체하려는 목적으로 만들어진다.
+> - 실행속도의 최적화 뿐만 아니라 컴파일러의 지속된 개량을 통해 더 빠른 컴파일 성능을 낸다.
 
 - 표현성 (expressive)
 
-> - 보기 좋은 문법을 구사
-> - 현대적이고 세련된 문법을 구사
-> - 계속된 업데이트를 통해 계속 발전중
+> - 보기 좋은 문법을 구사한다.
+> - 현대적이고 세련된 문법을 구사한다.
+> - 계속된 업데이트를 통해 계속 발전중이다.
 
 - Swift : 정적 타입 언어, Objective-C : 동적 타입 언어
 
-> - 정적 타입 언어란 : 타입을 컴파일시 결정하는 언어
+> - 정적 타입 언어란? 타입을 컴파일시 결정하는 언어이다.
 
 - ARC( Automatic Reference Counting ) 이용한 메모리 관리
+  - 참고 : Retain Cycle
 - 멀티 패러다임 지원 - OOP, FP( 함수형 프로그래밍 )
 
-Constants and Variables
---
+## Constants and Variables
+
 The value of a constant can't be changed once it's set, whereas a variable can be set to a different value in the future.
 ```Swift
 let constant: String = "차후에 변경이 불가능한 상수 let"
 var variable: String = "차후에 변경이 가능한 변수 var"
 ```
 
-Data Type
---
+## Data Type
+
 - Swift의 대부분의 데이터 타입들은 `struct`로 되어있다.
 ```Swift 
 public struct Int
@@ -81,19 +82,19 @@ if anotherEmptyString.isEmpty {
 ### nil
 - 없음을 의미하는 키워드
 
-Basic Operator
---
-- a++, ++a 이런 증감연산자 (x), 그러므로 a += 1 해줘야 한다.
+## Basic Operator
+
+- a++, ++a 이런 증감연산자는 지원 안한다. 그러므로 a += 1 해줘야 한다.
 - **closed range operator** : 1...5
   - 1 부터 5까지
 - **half-open range operator** : 1..<5 
   - 1 부터 4까지
 
-Conditional Statements 
---
+## Conditional Statements 
+
 1. if-else
 2. switch : 정수 외에 대부분의 기본 타입을 사용 가능
-- Swift는 `if-else`문 보다 `switch`문이 더 강력하다.
+- Swift에선 `switch`문도 매우 강력하다.
 - `switch`문에서 `break`는 꼭 필요하지 않다. 대신 `default`문은 필요하다.
 
 if and switch
@@ -116,8 +117,8 @@ default:
     print("Adult")
 }
 ```
-Control flow
---
+## Control flow
+
 1. `for-in` Loop
 2. `forEach` loop
 3. `while` loop
@@ -130,8 +131,9 @@ for _ in 1...5 {
     print("up!")  // up! 5 times
 }
 ```
-- `stride` 함수를 이용하면 index 접근이 더 편하다.
+- **`stride` 함수를 이용하면 index 접근이 더 편하다.**
   - through : 끝 포함, to : 끝 포함 (x)
+  - Fatal error: Stride size must not be zero. 즉, by: 0 이면 안된다.
 
 ```Swift 
 let minutes = 60
@@ -143,8 +145,8 @@ for tickMark in stride(from: 0, to: minutes, by: minuteInterval){
     print(tickMark)     // 0, 5, 10, ..., 55
 }
 ```
-Function
---
+## Function
+
 ```Swift
 func 함수이름(전달인자레이블 이름: 타입, _ 이름: 타입) -> 반환타입 {
   함수 구현
@@ -153,7 +155,7 @@ func 함수이름(전달인자레이블 이름: 타입, _ 이름: 타입) -> 반
 ```
 #### Argument Label ( 전달인자 레이블 )
 - **`함수 내부에선 Parameter name을, 함수를 호출할 때는 Argument Label을 사용한다.`**  
-- 코드의 가독성을 증가시킨다. 
+- 코드의 가독성을 증가시킨다. 좀 더 사람의 언어적인 코딩이 가능하다.
 - If you don't want an argument label for a `parameter`, write an underscore _ instead of an explicit argument label for that parameter.
 
 #### Variadic Parameters ( 가변 매개변수 )
