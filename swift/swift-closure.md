@@ -2,15 +2,16 @@
 > 익명함수, 즉 이름이 없는 함수 in Swift
 
 - "FRP"에서 task(작업)의 단위로 주로 쓰인다. 
-- 변수, 상수 등으로 저장 가능
-- 전달인자로 전달 가능
-- return 키워드 생략 가능 
+- 변수, 상수 등으로 저장할 수 있다.
+- 전달인자로 전달할 수 있다.
+- return 키워드 생략할 수 있다.
   - **마지막에 있는 값을 반환 값으로 인식한다.**
 ```Swift
 { (parameter, parameter, ...) -> (returnType) in 
     codes..
 }
 ```
+
 ## Function vs Closure
 
 | 비교 | Function | Closure |
@@ -60,20 +61,20 @@ sayHelloClosure("jinuman")
 ```
 ### 위에서 만들어진 클로저 축약해보기
 
-1. return 생략
+1. return 키워드를 생략한다.
 ```Swift
 var sayHelloClosure = {(name: String) -> String in
     "Hello \(name)!"
 }
 ```
-2. returnType 생략 가능
+2. returnType 도 생략할 수 있다.
    - 이 경우 Swift에서 타입 추론을 해준다. 
 ```Swift
 var sayHelloClosure = {(name: String) in
     "Hello \(name)!"
 }
 ```
-3. 클로저 타입을 명시해주면 parameter 생략 가능
+3. 클로저 타입을 명시해주면 parameter 생략이 가능하다.
 ```Swift
 var sayHelloClosure: (String) -> String = {
     "Hello \($0)!"
@@ -151,7 +152,7 @@ print(sameAsAbove)  // 13
 ## 단축 인자 이름 $0, $1, ...
 
 - 클로저의 매개변수 이름이 굳이 필요하지 않을 때 사용할 수 있다.
-- 클로저의 매개변수 순서대로 `$0, $1, ...` 처럼 표현
+- 클로저의 __매개변수 순서대로__ `$0, $1, ...` 처럼 표현한다.
 - in 키워드를 생략할 수 있다.
 - 클로저는 가독성 측면에서 복잡해보일 수 있기 때문에 단축 인자이름을 통해 코드도 줄이고, 가독성도 높일 수 있다.
 
@@ -169,7 +170,7 @@ print(result)       // 13
 
 ## 후행 클로저
 
-- 클로저가 함수의 마지막 parameter라면, 이름을 생략하고 함수 소괄호 외부에 구현 가능하다. 
+- 클로저가 함수의 마지막 parameter라면, **parameter 이름을 생략하고 함수 소괄호 외부로 뺄 수 있다.**
 
 ```Swift
 func calculate(a: Int, b: Int, method: (Int, Int) -> Int) -> Int {
