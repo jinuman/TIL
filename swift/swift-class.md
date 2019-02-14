@@ -42,23 +42,27 @@ print(immutable.mutableProperty)    // 200
 
 ## Initializer
 
-- 설계 시 프로퍼티의 초기값이 꼭 필요하지 않을 때 옵셔널 변수를 사용한다.
+- 설계 시 프로퍼티의 초기값이 꼭 필요하지 않을 때 옵셔널 변수를 사용하면 초기화를 나중에 해줘도 된다.
+- **let으로 선언한 stored properties 는 init으로 초기화가 꼭 필요하다.**
 ```Swift
-class Person {
+class User {
     let name: String
-    let age: Int
-    var nickname: String?
-    // var 선언 - init 필요 없음
-    // let 선언 - init 필요
+    let email: String
+    var nickname: String? // 옵셔널 선언 - init 필요 없음
     
-    init(name: String, age: Int) {
+    init(name: String, email: String) {
         self.name = name
-        self.age = age
+        self.email = email
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.email = "I don't have email."
     }
 }
 ```
 
-### 실패 가능한 Initializer
+### Failable Initializer
 - **인스턴스 생성 시 매개변수 초기값에 조건을 줄 경우 많이 사용한다. **  
 - 이 경우 인스턴스의 클래스 타입은 옵셔널이 된다.  
 ```Swift
@@ -83,23 +87,42 @@ let person: Person? = Person(name: "jinu", age: 290) // nil
 ```
 
 ### convenience init
+> 보조 이니셜라이저  
+
 - 클래스 안에서 Designated init이 먼저 생성된 경우에 사용 가능하다.
-- 생성자를 오버라이딩하는 개념이다. 즉, 같은 클래스에서 매개변수가 다른 init을 호출할 때 붙이는 키워드이다.
+- `convenience init`은 **같은 클래스에서 한 init이 다른 init을 호출 해야한다.**
 
 ```Swift
-class Person {
-    let name: String
-    let age: Int
-    var nickname: String?
+protocol EntryType: class {
+    var id: UUID { get }
+    var createdAt: Date { get }
+    var text: String { get set }
+}
+
+class Entry: EntryType {
+    let id: UUID
+    let createdAt: Date
+    var text: String    // 위에서 set으로 설정했기 때문에
     
-    convenience init(name: String, age: Int, nickname: String) {
-        self.init(name: name, age: age)  // 밑에서 만든 Designated init 호출
-        self.nickname = nickname
+    init(id: UUID = UUID(), createdAt: Date = Date(), text: String) {
+        self.id = id
+        self.createdAt = createdAt
+        self.text = text
     }
-    
-    init(name: String, age: Int) {
-        self.name = name
-        self.age = age
+}
+
+extension Entry {
+    // dictionary의 어떤 값이 들어있냐에 따라 만들 수도 있고, 못 만들수도 있다.
+    // convenience + failable initializer
+    convenience init?(dictionary: [String: Any]) {
+        guard
+            let uuidString = dictionary["uuidString"] as? String,
+            let uuid = UUID(uuidString: uuidString),
+            let createdAtTimeInterval = dictionary["createdAt"] as? Double,
+            let text = dictionary["text"] as? String
+            else { return nil }
+        
+        self.init(id: uuid, createdAt: Date(timeIntervalSince1970: createdAtTimeInterval), text: text)
     }
 }
 ```
