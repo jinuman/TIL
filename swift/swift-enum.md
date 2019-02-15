@@ -1,7 +1,7 @@
 # Enum
 
 - Swift의 열거형 ( enum )은 기존 다른 언어에 비해 강력하다.
-- 값 타입
+- 값 타입이다.
 - enum 자체가 하나의 데이터 타입이고, 각 case는 그 자체로 고유의 값이 된다.
 - enum은 switch문과 자주 사용될 수 있다.
 - Swift의 enum에는 method를 추가할 수 있다.
@@ -92,7 +92,7 @@ enum School: String {
 print(School.univ.rawValue) // univ
 ```
 
-### 옵셔널은 enum이다!
+### 옵셔널은 enum 이다!
 - 옵셔널 변수나 상수를 이용할 수 있다.
 ```Swift
 let age: Int? = 20

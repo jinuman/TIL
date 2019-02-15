@@ -2,8 +2,8 @@
 
 ## What is optional?
 
-- 값이 있을 수도 없을 수도 있는 (nil일 수도 아닐 수도 있는) 타입
-- Optional 타입은 열거형
+- 값이 있을 수도 없을 수도 있는 (nil일 수도 아닐 수도 있는) 타입이다.
+- Optional 타입은 열거형이다.
 ```Swift
 enum Optional<T> {
     case some(T)
@@ -11,7 +11,7 @@ enum Optional<T> {
 }
 ```
 - Optional 타입은 따로 초기화를 하지 않으면 nil로 초기화 된다.
-- **초기화 없이 옵셔널 타입 선언은 var만 가능하다!** let은 불가능
+- **초기화 없이 옵셔널 타입 선언은 var만 가능하다!** let은 불가능하다.
 ```Swift
 var text1: String?
 let text2: String? // error: must have an initial value
@@ -31,10 +31,12 @@ case .none:
 
 ## Why we use optional type?
 
-- nil 가능성을 명시적으로 표현
-    - nil 가능성을 문서/주석으로 작성하지 않고 코드로 표현 가능
-- 기존에 nil로 인한 crash 문제를 compile 시점에서 막아주려고 ..
-    - 안전한 코딩 가능
+- **nil 가능성을 명시적으로 표현한다.**    
+  nil 가능성을 문서/주석으로 작성하지 않고 코드로 표현 가능
+- **기존에 nil로 인한 crash 문제를 compile 시점에서 막아주려는 목적이다!**
+  - Safe
+
+
   
 ```Swift
 var number : Int? = 3 
@@ -62,7 +64,7 @@ fatal error: unexpectedly found nil while unwrapping an Optional value (11db)
 ```
 
 #### 2. 옵셔널 바인딩
-- 값이 있을 때만 바인딩 되게하는 방법
+- 값이 있을 때만 바인딩 되게하는 방법이다. 
 - if let(var), guard let(var), switch let(var)
 
 ```Swift

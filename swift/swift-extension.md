@@ -1,14 +1,14 @@
 # Extension
-> - class, struct, enum, protocol 타입에 새로운 기능을 추가  
-> - 구현된 소스를 모르는 타입에도 기능 확장이 가능
+> class, struct, enum, protocol 타입에 새로운 기능을 추가  
+> 구현된 소스를 모르는 타입에도 기능 확장이 가능
 
 - 타입만 알고 있다면 그 타입에 자신이 만든 기능을 추가해서 사용할 수 있다.
-- ex) Int 타입에 자신이 만든 프로퍼티 추가
+- ex) Int 타입에 자신이 만든 프로퍼티 추가할 수 있다. 
 
 ### Property, Method 추가
 
-- **computed property**만 추가해서 사용하는 것이 가능하다.
-- <u>stored property, property observer 추가 확장 X</u>
+- 프로퍼티 관련해서는 **computed property**만 추가해서 사용하는 것이 가능하다.
+- <u>`stored property`, `property observer`는 extension이 허용되지 않는다. </u>
 
 ```Swift
 extension Int {
