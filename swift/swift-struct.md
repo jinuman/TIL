@@ -1,7 +1,7 @@
 # Struct
 
 - Swift의 대부분의 데이터 타입들은 `struct`로 되어있다. Int, String, Double 등등
-- 값 타입
+- 값 타입이다.   
 ```Swift
 struct Sample {
     var mutableProperty: Int = 100 // 가변 프로퍼티
