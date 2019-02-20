@@ -1,7 +1,7 @@
 # TIL
 
 > Today I Learned
-> > Practically self reviewing things in my head :)
+> > To actually review what I've learned before :)
 
 ## Convention
 
