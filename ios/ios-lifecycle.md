@@ -13,12 +13,35 @@
   - ex) touchesBegan, touchesMoved, touchesEnded, ...
 - UIView는 UIResponder를 상속받는다.
 
-#### View 부분을 Tab 하면 키보드 내리는 코드
+#### 바깥 부분을 Tap 하면 키보드 내리는 코드
+
+- 단순히 바깥 부분을 탭할 시 키보드 내리는 것만 가능하다. 간단하게는 이렇게 사용
+
 ```Swift
 override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
   self.view.endEditing(true)
 }
 ```
+
+- Gesture Recognizer 이용하는 방법
+
+```Swift
+// viewDidLoad 에서 제스쳐 추가 및 델리게이트 설정하고 밑에 함수를 구현해준다.
+
+let tapGesture = UITapGestureRecognizer()
+tapGesture.delegate = self
+view.addGestureRecognizer(tapGesture)
+
+extension ViewController: UIGestureRecognizerDelegate {
+    // 키보드 내리기
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        // editing 종료 후 상태를 검사하는 코드를 주로 작성 ex. checkIfAllDone()
+        return true
+    }
+}
+```
+
 * * *
 ## App Life Cycle
 
