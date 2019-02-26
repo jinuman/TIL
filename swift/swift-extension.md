@@ -2,8 +2,9 @@
 > class, struct, enum, protocol 타입에 새로운 기능을 추가  
 > 구현된 소스를 모르는 타입에도 기능 확장이 가능
 
-- 타입만 알고 있다면 그 타입에 자신이 만든 기능을 추가해서 사용할 수 있다.
-- ex) Int 타입에 자신이 만든 프로퍼티 추가할 수 있다. 
+- 타입만 알고 있다면 그 타입에 자신이 만든 기능을 추가해서 사용할 수 있다.  
+  - ex) Int 타입에 자신이 만든 프로퍼티 추가할 수 있다. 
+- _`extension`은 같은 파일 내에서만 `private` 접근이 가능하다._
 
 ### Property, Method 추가
 
@@ -20,7 +21,19 @@ extension Int {
             task()
         }
     }
+    func power(_ num: Int) -> Int {
+        var result = 1
+        for _ in 0..<num {
+            result *= self
+        }
+        return result
+    }
 }
+print(2.isEven)     // true
+3.repeatFunc {
+    print("Hello world!")  // "Hello world!" 3번 출력
+}
+print(12.power(0))   // 1
 
 extension String {
     func mixUppercasedAndLowercased() -> String {
@@ -34,11 +47,6 @@ extension String {
         }
         return result
     }
-}
-
-print(2.isEven)     // true
-3.repeatFunc {
-    print("Hello world!")  // "Hello world!" 3번 출력
 }
 print("Hey!Hey!Hey!Hey!".mixUppercasedAndLowercased())  // "HeY!HeY!HeY!HeY!"
 ```
