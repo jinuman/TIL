@@ -35,6 +35,7 @@
 - [Optional](swift/swift-optional.md)
 - [Tuple](swift/swift-tuple.md)
 - [Property](swift/swift-property.md)
+- [Lazy Property](swift/swift-lazy-property.md)
 - [Struct](swift/swift-struct.md)
 - [Class](swift/swift-class.md)
 - [Enum](swift/swift-enum.md)
