@@ -54,7 +54,7 @@ print(handsomePerson.greeting) // Hello my name is Jinwoo
 ```
 클래스 내부의 클로저에서 객체를 self로 참조한다면 메모리 누수가 생길 수 있지만, 위는 ()를 통해 즉시 실행 후 결과를 돌려주고 끝내기 때문에, 메모리 누수 걱정이 없다.  
 또한 프로퍼티를 "Minwoo"로 변경해도 처음 사용할 때 메모리에는 "Jinwoo"가 올라가 있기 때문에 "Jinwoo"가 출력된다. lazy var 프로퍼티는 직접 접근해서 변경하지 않는 한 바뀌지 않는다.    
-**me.greeting은 클로저의 실행의 결과를 담은 것이라고 볼 수 있다.**  
+**handsomePerson.greeting은 클로저의 실행의 결과를 담은 것이라고 볼 수 있다.**  
 
 ```Swift
 class Person {
