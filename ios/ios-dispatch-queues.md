@@ -31,10 +31,10 @@
 ### 1. Main Queue
 
 - 메인 쓰레드(UI 쓰레드)에서 사용되는, 전역적으로 사용 가능한 `Serial Queue`이다.  
-  ✻ 참고) 모든 UI 처리는 `main thread` 에서 처리한다.
-- __*`main thread` 에서 실행되므로, 주로 앱의 주요 동기화 지점으로 사용된다!*__
+- _tip_: 모든 UI 처리는 `main thread` 에서 처리한다.
+- __`main thread` 에서 실행되므로, 주로 앱의 주요 동기화 지점으로 사용된다!*__
   - `DispatchQueue.main.async { code }`
-- DispatchQueue.main.sync 하면 안된다!
+- DispatchQueue.main.sync 하면 절대 안된다!
 
 ### 2. Global Queue
 
@@ -57,7 +57,11 @@
 > `Serial / Concurrent`: __한번에 하나만 처리하느냐, 동시에 여러개 처리하느냐의 개념__    
 > `sync / async`: __처리가 끝날때까지 기다리느냐, 등록만하고 다른 처리를 하느냐의 개념__  
 
-- sync : 큐에 작업을 등록했으면 그게 끝날때까지 **"기다리는"** 것이다.
-- async : 일단 큐에 작업을 등록하고, 다른 작업을 할 수 있는 것이다.
+#### sync
+- 큐에 작업을 등록했으면 그게 끝날때까지 **"기다리는"** 것이다.
+- `blocking` 이라고 생각하면 된다.
 
+#### async
+- 일단 큐에 작업을 등록하고, 다른 작업을 할 수 있는 것이다.
+- `non-blocking` 이라고 생각하면 된다.
 
