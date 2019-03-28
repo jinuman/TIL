@@ -1,14 +1,14 @@
 # Enum
 
-- Swift의 열거형 ( enum )은 기존 다른 언어에 비해 강력하다.
-- 값 타입이다.
-- enum 자체가 하나의 데이터 타입이고, 각 case는 그 자체로 고유의 값이 된다.
-- enum은 switch문과 자주 사용될 수 있다.
-- Swift의 enum에는 method를 추가할 수 있다.
+- Swift 의 enum 은 기존 다른 언어에 비해 강력하다.
+- `값 타입`이다.
+- enum 자체가 하나의 데이터 타입이고, 각각의 case 는 그 자체로 고유의 값이 된다.
+- enum 은 switch 문과 자주 사용될 수 있다.
+- Swift 의 enum 에는 method 를 추가할 수 있다.
 
-#### 모델을 만들 때 Tip!
+### How to choose a model type?
 ```
-타입 A, B, C 가 있을 때, 
+A, B, C 가 있을 때, 
 enum : A or B or C             // ex) 사람의 성별 ( 남자 혹은 여자 )
 struct, Tuple : A and B and C  // ex) 사람 한명 ( 이름, 키, 몸무게, 등등 )
 ```
@@ -38,8 +38,9 @@ Month.mar.printMessage()    // Spring
 ```
 
 ### 연관값 바인딩
-- 연관값 : (Double), (version: Int) 와 같은 것..
-- function처럼 쓸 수 있다.
+
+- 연관값이란? 밑에서 (Double), (version: Int) 와 같은 것을 말한다. 
+
 ```Swift
 enum OS {
     case macOS(Double)
@@ -63,9 +64,10 @@ case let .windows(version):
 ```
 
 ### rawValue
-- Hashable 프로토콜을 따르는 모든 타입이 원시값의 타입으로 지정될 수 있다.
-- 연관값이 없는 enum만 가능하다.
-- case별로 각각 다른 값을 가져야 한다.
+
+- Hashable 프로토콜을 따르는 모든 타입이 `rawValue`의 타입으로 지정될 수 있다.
+- __연관값이 없는 enum만 가능하다.__
+- __case 별로 각각 다른 값을 가져야 한다.__
 ```Swift
 enum Fruit: Int {
     case apple = 0
@@ -81,7 +83,9 @@ if let fruit: Fruit = Fruit(rawValue: num) {
 }  // "rawValue 0 : apple"
 print(Fruit.peach.rawValue)     // 2
 ```
+
 - 원시값을 지정해주지 않으면 case 값 그대로 가져온다.
+
 ```Swift
 enum School: String {
     case elementary = "초등"
@@ -92,8 +96,10 @@ enum School: String {
 print(School.univ.rawValue) // univ
 ```
 
-### 옵셔널은 enum 이다!
-- 옵셔널 변수나 상수를 이용할 수 있다.
+### Optional is an enum type with 2 cases!
+
+- 밑에 처럼 활용할 수 있다.
+
 ```Swift
 let age: Int? = 20
 
