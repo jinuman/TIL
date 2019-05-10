@@ -3,8 +3,9 @@
 - Swift 의 enum 은 기존 다른 언어에 비해 강력하다.
 - `값 타입`이다.
 - enum 자체가 하나의 데이터 타입이고, 각각의 case 는 그 자체로 데이터 타입이고, 고유의 값이다.
-- switch 문을 활용하면 좋다.
-- Swift 의 enum 에는 method 를 추가할 수 있다.
+- case 자체가 고유의 값이라서 switch 문과 많이 활용된다.
+- enum 안에 method 를 추가할 수 있다.
+- enum 안에 **저장 프로퍼티는 만들 수 없지만, 연산 프로퍼티는 만들 수 있다.**
 
 ```Swift
 enum Month {
@@ -25,9 +26,23 @@ enum Month {
             print("Winter")
         }
     }
+    
+    var message: String {
+        switch self {
+        case .mar, .apr, .may:
+            return "Spring"
+        case .jun, .jul, .aug:
+            return "Summer"
+        case .sep, .oct, .nov:
+            return "Autumn"
+        case .dec, .jan, .feb:
+            return "Winter"
+        }
+    }
 }
 
 Month.mar.printMessage()    // Spring
+print(Month.jun.message)    // Summer
 ```
 
 ## How to choose a Model type?
@@ -40,7 +55,7 @@ Month.mar.printMessage()    // Spring
 
 ## enum 을 사용하면 좋은 경우
 
-- 다른 타입으로 지정해야 되는 것을 단일 타입 내에 다른 사례로 처리하고 싶을 때
+- 다른 타입으로 지정해야 되는 것을 **단일 타입 내에 다른 사례로 처리하고 싶을 때**
 
 ```Swift
 enum Barcode {
