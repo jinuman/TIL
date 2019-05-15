@@ -46,6 +46,7 @@
 - [Enum](swift/swift-enum.md)
 - [Closure](swift/swift-closure.md)
 - [Extension](swift/swift-extension.md)
+- [Protocol](swift/swift-protocol.md)
 - [Quick Sort](swift/swift-quicksort.md)
 - [Merge Sort](swift/swift-mergesort.md)
 - [Timer](swift/swift-timer.md)
