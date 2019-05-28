@@ -20,8 +20,8 @@
 
 > 정적 타입 언어란? 타입을 컴파일 시 결정하는 언어이다.
 
-- ARC( Automatic Reference Counting ) 이용한 메모리 관리
-    - 참고 : Retain Cycle
+- ARC( Automatic Reference Counting ) 이용한 메모리 관리 자동화
+
 - 언어에서 멀티 패러다임을 지원한다.
     - OOP, FP( 함수형 프로그래밍 )
 
