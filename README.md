@@ -45,6 +45,8 @@
 - [Class](swift/swift-class.md)
 - [Enum](swift/swift-enum.md)
 - [Closure](swift/swift-closure.md)
+- [Closure - Capture](swift/swift-closure-capture.md)
+- [Closure - Retain Cycle](swift/swift-closure-retaincycle.md)
 - [Extension](swift/swift-extension.md)
 - [Protocol](swift/swift-protocol.md)
 - [Quick Sort](swift/swift-quicksort.md)
